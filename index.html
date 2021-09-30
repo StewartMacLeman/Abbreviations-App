@@ -12,10 +12,48 @@
   </head>
 
   <body>
-    <h1>Abbreviations App</h1>
-    <h2>For common SD abbrevs.</h2>
-    <p>Some test text</p>
-    <button type="button" name="button">This is a button</button>
+
+      <header class="header">
+        <h1>Abbreviations App</h1>
+        <h2>For common SD abbrevs.</h2>
+      </header>
+
+      <main class="main">
+        <h3>Your Abbrevs.</h3>
+        <div class="abbrContainer">
+          <div class="abbrRow rowHeaderDiv">
+            <div><span class="rowHeader">Abbrev.</span></div>
+            <div><span class="rowHeader">Definition</span></div>
+            <div><span class="rowHeader">Update</span></div>
+          </div>
+
+          <div class="abbrRow">
+            <div><span>URL</span></div>
+            <div><span>Uniform Resource Locator</span></div>
+            <div><span><button type="button">Update</button></span></div>
+          </div>
+          <div class="abbrRow">
+            <div><span>URL</span></div>
+            <div><span>Uniform Resource Locator</span></div>
+            <div><span><button type="button">Update</button></span></div>
+          </div>
+
+        </div>
+
+      </main>
+      <!-- The cover for the add, edit and delete modals ------------------------>
+      <div class="modelCover hide"></div>
+
+      <div class="addAbbrevModel hide">
+
+        <button type="button" id="subCancel">Cancel</button>
+      </div>
+
+      <footer class="footer">
+        <button type="button" id="subBut">+</button>
+        <p>Click above to add more!</p>
+      </footer>
+
 
   </body>
 </html>
