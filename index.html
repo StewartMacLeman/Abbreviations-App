@@ -12,12 +12,13 @@
   </head>
 
   <body>
-
+    <!-- The header --------------------------------------------------------->
       <header class="header">
         <h1>Abbreviations App</h1>
         <h2>For common SD abbrevs.</h2>
       </header>
 
+      <!-- The users abbreviations -------------------------------------------->
       <main class="main">
         <h3>Your Abbrevs.</h3>
         <div class="abbrContainer">
@@ -28,27 +29,68 @@
           </div>
 
           <div class="abbrRow">
-            <div><span>URL</span></div>
-            <div><span>Uniform Resource Locator</span></div>
-            <div><span><button type="button">Update</button></span></div>
+            <div><span class="abbrevText">URL</span></div>
+            <div><span class="defText">Uniform Resource Locator</span></div>
+            <div><button class="updButton" type="button">Update</button></div>
           </div>
           <div class="abbrRow">
-            <div><span>URL</span></div>
-            <div><span>Uniform Resource Locator</span></div>
-            <div><span><button type="button">Update</button></span></div>
+            <div><span class="abbrevText">URI</span></div>
+            <div><span class="defText">Uniform Resource Indentifier</span></div>
+            <div><button class="updButton" type="button">Update</button></div>
           </div>
 
         </div>
 
       </main>
+
       <!-- The cover for the add, edit and delete modals ------------------------>
       <div class="modelCover hide"></div>
 
+      <!-- The add an abbreviation model/form. -------------------------------->
       <div class="addAbbrevModel hide">
+        <button class="cancel" type="button" id="subCancel">Cancel</button>
 
-        <button type="button" id="subCancel">Cancel</button>
+        <form class="" action="#" method="post">
+
+          <div class="abbrevInput">
+            <label for="abbrev">Abbreviation: </label>
+            <input type="text" id="abbrev" name="abbrev" autocomplete="off" autofocus>
+          </div>
+
+          <div class="abbrevInput">
+            <label for="abbrevDefin">Definition: </label>
+            <input type="text" id="abbrevDefin" name="abbrevDefin" autocomplete="off" autofocus>
+          </div>
+
+          <button type="button" name="button">Add Abbrev.</button>
+        </form>
       </div>
 
+      <!-- The update/delete model/form. -------------------------------->
+      <div class="updateAbbrevModel hide">
+
+        <!-- Delete an item. ---------------------------------->
+        <button class="delete" type="button" id="delButton">Delete Item!</button>
+
+        <!-- Update an item. ---------------------------------->
+        <form class="" action="#" method="post">
+
+          <div class="abbrevInput">
+            <label for="abbrevUpd">Abbreviation: </label>
+            <input type="text" id="abbrevUpd" name="abbrev" autocomplete="off" autofocus>
+          </div>
+
+          <div class="abbrevInput">
+            <label for="abbrevDefinUpd">Definition: </label>
+            <input type="text" id="abbrevDefinUpd" name="abbrevDefin" autocomplete="off" autofocus>
+          </div>
+
+          <button type="button" name="button">Update Abbrev.</button>
+        </form>
+
+      </div>
+
+      <!-- The footer --------------------------------------------------------->
       <footer class="footer">
         <button type="button" id="subBut">+</button>
         <p>Click above to add more!</p>

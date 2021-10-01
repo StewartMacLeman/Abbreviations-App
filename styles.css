@@ -17,10 +17,11 @@ h1 { font-size: 3rem; }
 h2 { font-size: 2.5rem; }
 h3 { font-size: 2.25rem; }
 p { font-size: 2rem; }
+label, input { font-size: 2rem; }
 span { font-size: 1.5rem; }
 button { font-size: 1.5rem; }
 
-h1, h2, h3, p, span, button {
+h1, h2, h3, p, label, input, span, button {
   font-family: verdana, helvetica, sans-serif;
   text-align: center;
   margin: 0 auto .25rem;
@@ -87,12 +88,8 @@ button:hover {
   justify-content: center;
   align-items: center;
   margin: 0;
-  padding: 0;
+  padding: .3rem 0;
   border: .15rem solid black;
-}
-.abbrRow div * {
-  padding: .15rem 0;
-  margin: 0;
 }
 .rowHeader {
   font-weight: bold;
@@ -108,8 +105,8 @@ button:hover {
   background-color: grey;
   opacity: 50%;
 }
-/* The Add Abbreviation Modal----------------------------------------------- */
-.addAbbrevModel {
+/* The Add Abbreviation, Update & Delete Modals----------------------------- */
+.addAbbrevModel, .updateAbbrevModel {
   position: fixed;
   top: 18%;
   width: 90%;
@@ -120,6 +117,34 @@ button:hover {
   flex-direction:column;
   justify-content: center;
   align-items: center;
+}
+.addAbbrevModel button, .updateAbbrevModel button {
+  min-width: 50%;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+.addAbbrevModel form, .updateAbbrevModel form {
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  border-top: .15rem solid black;
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+.abbrevInput {
+  width: 90%;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
+.abbrevInput input {
+  width: 90%;
+  text-align: left;
+  margin-bottom: .5rem;
+}
+.delete, .cancel {
+  background-color: red;
 }
 /* footer styles. ------------------------------------------------------ */
 .footer {
@@ -145,6 +170,7 @@ button:hover {
   body { width: 80%; }
   .main { width: 100%; }
   .footer { width: 80%; }
+  .addAbbrevModel, .updateAbbrevModel { width: 80%; }
 }
 @media screen and (max-width: 800px) {
   html { font-size: 12px; }
@@ -162,9 +188,9 @@ button:hover {
   .header { height: 13%; }
   .main { height: 64%; }
   .footer { height: 18%; }
-  .abbrRow div * { padding: .5rem 0; }
+  .abbrRow div { padding: .5rem 0; }
   .abbrContainer { height: 90%; }
-  .addAbbrevModel {
+  .addAbbrevModel, .updateAbbrevModel {
     top: 13%;
     width: 90%;
     height: 68%;
