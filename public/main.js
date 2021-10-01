@@ -8,6 +8,7 @@ let updateAbbrevModelDiv = document.querySelector(".updateAbbrevModel");
 let submitCancelButton = document.getElementById("subCancel");
 
 let updateButtons = document.querySelectorAll(".updButton");
+let hiddenIdInput = document.getElementById("abbrevId");
 let updateAbbrevInputElement = document.getElementById("abbrevUpd");
 let updateDefinInputElement = document.getElementById("abbrevDefinUpd");
 let deleteItemButton = document.getElementById("delButton");
@@ -36,10 +37,15 @@ function showUpdateModel(e) {
   let clickedButton = e.target;
   let abbrevText = clickedButton.parentElement.parentElement.querySelector(".abbrRow .abbrevText").textContent;
   let definText = clickedButton.parentElement.parentElement.querySelector(".abbrRow .defText").textContent;
+  let id = clickedButton.value;
+  deleteItemButton.value = id;
+  console.log(id);
   // console.log(abbrevText);
   // console.log(definText);
+  hiddenIdInput.value = id;
   updateAbbrevInputElement.value = abbrevText;
   updateDefinInputElement.value = definText;
+
 
   modelCoverDiv.classList.remove("hide");
   updateAbbrevModelDiv.classList.remove("hide");
@@ -50,6 +56,15 @@ deleteItemButton.addEventListener("click", deleteItem);
 
 function deleteItem(){
   // Temp functionality!!!
+  let delButtonId = deleteItemButton.value
+  // console.log(delButtonId);
+  axios.post("/delete", { id: delButtonId }).then(() => {
+    // deleteElement.remove();
+    console.log("The item was deleted!");
+  }).catch(() => {
+    console.log("Please try again later!");
+  });
+
   modelCoverDiv.classList.add("hide");
   updateAbbrevModelDiv.classList.add("hide");
 }

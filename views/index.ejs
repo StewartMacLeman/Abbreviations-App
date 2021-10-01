@@ -7,6 +7,7 @@
     <meta name="description" content="An app to contain common Software Development abbreviations">
     <link rel="stylesheet" href="./styles.css">
     <link rel="icon" href="./favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./main.js" defer></script>
 
     <title>SD Abbrev.</title>
@@ -39,6 +40,16 @@
             <div><span class="defText">Uniform Resource Indentifier</span></div>
             <div><button class="updButton" type="button">Update</button></div>
           </div>
+          <% for (let i = 0; i < abbrevsArray.length; i++){ %>
+            <div class="abbrRow">
+              <div><span class="abbrevText"><%= abbrevsArray[i].abbrev %></span></div>
+              <div><span class="defText"><%= abbrevsArray[i].definiton %></span></div>
+              <div>
+                <button class="updButton"
+                type="button" name="id" value="<%= abbrevsArray[i]._id %>" >Update</button>
+              </div>
+            </div>
+          <% } %>
 
         </div>
       </main>
@@ -50,7 +61,7 @@
       <div class="addAbbrevModel hide">
         <button class="cancel" type="button" id="subCancel">Cancel</button>
 
-        <form class="" action="#" method="post">
+        <form class="" action="/" method="post">
 
           <div class="abbrevInput">
             <label for="abbrev">Abbreviation: </label>
@@ -62,7 +73,7 @@
             <input type="text" id="abbrevDefin" name="abbrevDefin" autocomplete="off" autofocus>
           </div>
 
-          <button type="button" name="button">Add Abbrev.</button>
+          <button type="submit" name="button">Add Abbrev.</button>
         </form>
       </div>
 
@@ -73,7 +84,9 @@
         <button class="delete" type="button" id="delButton">Delete Item!</button>
 
         <!-- Update an item. ---------------------------------->
-        <form class="" action="#" method="post">
+        <form class="" action="/update" method="post">
+
+          <input class="hide" id="abbrevId" name="id" value="">
 
           <div class="abbrevInput">
             <label for="abbrevUpd">Abbreviation: </label>
@@ -85,7 +98,7 @@
             <input type="text" id="abbrevDefinUpd" name="abbrevDefin" autocomplete="off" autofocus>
           </div>
 
-          <button type="button" name="button">Update Abbrev.</button>
+          <button type="submit" name="button">Update Abbrev.</button>
         </form>
 
       </div>
