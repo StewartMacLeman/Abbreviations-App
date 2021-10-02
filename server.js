@@ -17,10 +17,12 @@ const Abbrev = new mongoose.model("Abbreviation", abbrevSchema)
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.json());
+
+// CRUD actions. -------------------------------------------------------
 
 // Read/Get the abbreviations. -----------------------------------------
-
-// Using async throw an error message, however the app still worked - to be followed up!
+// Issues using the async/await syntax to be explored!
 app.get("/", (req, res) => {
   try {
     Abbrev.find((err, abbreviations) => {
@@ -32,13 +34,13 @@ app.get("/", (req, res) => {
 });
 
 // Create an abbreviation. ------------------------------------------
-app.post("/", async (req, res) => {
+app.post("/", (req, res) => {
   const abbrev = new Abbrev({
     abbrev: req.body.abbrev,
     definiton: req.body.abbrevDefin
   })
   try {
-    await abbrev.save();
+    abbrev.save();
   } catch (err) {
     console.log(err);
   }
@@ -48,25 +50,24 @@ app.post("/", async (req, res) => {
 // Update an abbreviation. -------------------------------------------
 app.post("/update", (req, res) => {
   Abbrev.updateOne({_id: req.body.id}, {abbrev: req.body.abbrev, definiton: req.body.abbrevDefin}, (err) => {
-    if (err) {
-      console.log(err);
-    } else {
+    try {
       res.redirect("/");
+    } catch (err) {
+      console.log(err);
     }
   })
-})
+});
 
 // Delete an abbreviation. -------------------------------------------
 app.post("/delete", (req, res) => {
-  console.log(req.body);
-  // Abbrev.deleteOne({_id: req.body.id}, (err) => {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     res.redirect("/");
-  //   }
-  // })
-})
+  Abbrev.deleteOne({_id: req.body.id}, (err) => {
+    try {
+      res.redirect("/");
+    } catch (err) {
+      console.log(err);
+    }
+  })
+});
 
 app.listen(3000, () => {
   console.log("The server is running on port 3000.");

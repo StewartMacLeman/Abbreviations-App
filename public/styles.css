@@ -143,6 +143,14 @@ button:hover {
   text-align: left;
   margin-bottom: .5rem;
 }
+.updButtonsCont {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.updButtonsCont button {
+  min-width: 40%;
+}
 .delete, .cancel {
   background-color: red;
 }

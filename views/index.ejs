@@ -30,16 +30,6 @@
             <div><span class="rowHeader">Update</span></div>
           </div>
 
-          <div class="abbrRow">
-            <div><span class="abbrevText">URL</span></div>
-            <div><span class="defText">Uniform Resource Locator</span></div>
-            <div><button class="updButton" type="button">Update</button></div>
-          </div>
-          <div class="abbrRow">
-            <div><span class="abbrevText">URI</span></div>
-            <div><span class="defText">Uniform Resource Indentifier</span></div>
-            <div><button class="updButton" type="button">Update</button></div>
-          </div>
           <% for (let i = 0; i < abbrevsArray.length; i++){ %>
             <div class="abbrRow">
               <div><span class="abbrevText"><%= abbrevsArray[i].abbrev %></span></div>
@@ -98,7 +88,11 @@
             <input type="text" id="abbrevDefinUpd" name="abbrevDefin" autocomplete="off" autofocus>
           </div>
 
-          <button type="submit" name="button">Update Abbrev.</button>
+          <div class="updButtonsCont">
+            <button type="button" class="cancel" id="cancelUpd">Cancel</button>
+            <button type="submit" name="button">Update Abbrev.</button>
+          </div>
+
         </form>
 
       </div>
