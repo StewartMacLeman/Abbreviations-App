@@ -95,7 +95,7 @@ button:hover {
   font-weight: bold;
 }
 /* The Modal Cover. -------------------------------------------------------- */
-.modelCover {
+.modalCover {
   position: fixed;
   top: 0;
   left: 0;
@@ -106,7 +106,7 @@ button:hover {
   opacity: 50%;
 }
 /* The Add Abbreviation, Update & Delete Modals----------------------------- */
-.addAbbrevModel, .updateAbbrevModel {
+.addAbbrevModal, .updateAbbrevModal {
   position: fixed;
   top: 18%;
   width: 90%;
@@ -118,12 +118,12 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
-.addAbbrevModel button, .updateAbbrevModel button {
+.addAbbrevModal button, .updateAbbrevModal button {
   min-width: 50%;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
-.addAbbrevModel form, .updateAbbrevModel form {
+.addAbbrevModal form, .updateAbbrevModal form {
   width: 100%;
   display: flex;
   flex-direction:column;
@@ -178,7 +178,7 @@ button:hover {
   body { width: 80%; }
   .main { width: 100%; }
   .footer { width: 80%; }
-  .addAbbrevModel, .updateAbbrevModel { width: 80%; }
+  .addAbbrevModal, .updateAbbrevModal { width: 80%; }
 }
 @media screen and (max-width: 800px) {
   html { font-size: 12px; }
@@ -198,7 +198,7 @@ button:hover {
   .footer { height: 18%; }
   .abbrRow div { padding: .5rem 0; }
   .abbrContainer { height: 90%; }
-  .addAbbrevModel, .updateAbbrevModel {
+  .addAbbrevModal, .updateAbbrevModal {
     top: 13%;
     width: 90%;
     height: 68%;
