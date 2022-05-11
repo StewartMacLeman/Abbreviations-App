@@ -2,7 +2,7 @@
 
 This is a simple CRUD app to contain abbreviations that a user would wish to remember.
 
-## Build with:
+## Built with:
 * Express
 * Mongoose
 * EJS
