@@ -37,7 +37,7 @@ app.get("/", (req, res) => {
 app.post("/", (req, res) => {
   const abbrev = new Abbrev({
     abbrev: req.body.abbrev,
-    definiton: req.body.abbrevDefin
+    definition: req.body.abbrevDefin
   })
   try {
     abbrev.save();
@@ -49,7 +49,7 @@ app.post("/", (req, res) => {
 
 // Update an abbreviation. -------------------------------------------
 app.post("/update", (req, res) => {
-  Abbrev.updateOne({_id: req.body.id}, {abbrev: req.body.abbrev, definiton: req.body.abbrevDefin}, (err) => {
+  Abbrev.updateOne({_id: req.body.id}, {abbrev: req.body.abbrev, definition: req.body.abbrevDefin}, (err) => {
     try {
       res.redirect("/");
     } catch (err) {
